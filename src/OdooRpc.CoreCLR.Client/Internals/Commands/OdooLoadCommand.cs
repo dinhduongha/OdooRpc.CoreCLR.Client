@@ -1,37 +1,42 @@
-// namespace OdooRpc.CoreCLR.Client.Internals.Commands
-// {
-//     public class OdooLoadCommand
-//     {
-//         public OdooCreateCommand(IJsonRpcClient rpcClient)
-//             : base(rpcClient)
-//         {
-//         }
+using System.Threading.Tasks;
+using JsonRpc.CoreCLR.Client.Interfaces;
+using OdooRpc.CoreCLR.Client.Models;
 
-//         public Task<long> Execute<T>(OdooSessionInfo sessionInfo, string model, T newRecord)
-//         {
-//             return InvokeRpc<long>(sessionInfo, CreateCreateRequest(sessionInfo, model, newRecord));
-//         }
+namespace OdooRpc.CoreCLR.Client.Internals.Commands
+{
+    internal class OdooLoadCommand : OdooAbstractCommand
+    {
+        public OdooLoadCommand(IJsonRpcClient rpcClient)
+            : base(rpcClient)
+        {
+        }
 
-//         private OdooRpcRequest CreateCreateRequest(OdooSessionInfo sessionInfo, string model, object newRecord)
-//         {
-//             return new OdooRpcRequest()
-//             {
-//                 service = "object",
-//                 method = "execute_kw",
-//                 args = new object[]
-//                 {
-//                     sessionInfo.Database,
-//                     sessionInfo.UserId,
-//                     sessionInfo.Password,
-//                     model,
-//                     "load",
-//                     new object[]
-//                     {
-//                         newRecord
-//                     }
-//                 },
-//                 context = sessionInfo.UserContext
-//             };
-//         }
-//     }
-// }
+        public Task<dynamic> Execute<T>(OdooSessionInfo sessionInfo, string model, T data, params string[] header)
+        {
+            return InvokeRpc<dynamic>(sessionInfo, CreateLoadRequest(sessionInfo, model, data, header));
+        }
+
+        private OdooRpcRequest CreateLoadRequest(OdooSessionInfo sessionInfo, string model, object data, object header)
+        {
+            return new OdooRpcRequest()
+            {
+                service = "object",
+                method = "execute_kw",
+                args = new object[]
+                {
+                    sessionInfo.Database,
+                    sessionInfo.UserId,
+                    sessionInfo.Password,
+                    model,
+                    "load",
+                    new object[]
+                    {
+                        data,
+                        header
+                    }
+                },
+                context = sessionInfo.UserContext
+            };
+        }
+    }
+}
