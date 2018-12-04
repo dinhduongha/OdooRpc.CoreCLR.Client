@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdooRpc.CoreCLR.Client", "s
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdooRpc.CoreCLR.Client.Samples", "src\OdooRpc.CoreCLR.Client.Samples\OdooRpc.CoreCLR.Client.Samples.csproj", "{87BCC575-BD82-4B44-BD71-8D0D5C8EB841}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{DAC116B5-58F9-4DD8-830A-461F555640CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OdooRpc.CoreCLR.Client.Tests", "tests\OdooRpc.CoreCLR.Client.Tests\OdooRpc.CoreCLR.Client.Tests.csproj", "{79DDCE62-CAF8-4113-9E85-AB9C5388AF1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,11 +25,18 @@ Global
 		{87BCC575-BD82-4B44-BD71-8D0D5C8EB841}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87BCC575-BD82-4B44-BD71-8D0D5C8EB841}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87BCC575-BD82-4B44-BD71-8D0D5C8EB841}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79DDCE62-CAF8-4113-9E85-AB9C5388AF1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79DDCE62-CAF8-4113-9E85-AB9C5388AF1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79DDCE62-CAF8-4113-9E85-AB9C5388AF1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79DDCE62-CAF8-4113-9E85-AB9C5388AF1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D4894610-CB54-4E73-A415-2A712320F921}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{79DDCE62-CAF8-4113-9E85-AB9C5388AF1D} = {DAC116B5-58F9-4DD8-830A-461F555640CD}
 	EndGlobalSection
 EndGlobal
