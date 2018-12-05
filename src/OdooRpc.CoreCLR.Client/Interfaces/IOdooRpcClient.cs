@@ -35,7 +35,7 @@ namespace OdooRpc.CoreCLR.Client.Interfaces
 
         Task<long> ExecWorkFlow<T>(string model, string method, long id);
         Task<long> Create<T>(string model, T newRecord);
-        Task<dynamic> Load<T>(string model, T data, params string[] header);
+        Task<long[]> Load<T>(string model, T data, params string[] header);
         Task<dynamic> CreateDynamic<T>(string model, string method, T newRecord);
 
         Task Delete(string model, long id);

@@ -11,9 +11,9 @@ namespace OdooRpc.CoreCLR.Client.Internals.Commands
         {
         }
 
-        public Task<dynamic> Execute<T>(OdooSessionInfo sessionInfo, string model, T data, params string[] header)
+        public Task<long[]> Execute<T>(OdooSessionInfo sessionInfo, string model, T data, params string[] header)
         {
-            return InvokeRpc<dynamic>(sessionInfo, CreateLoadRequest(sessionInfo, model, data, header));
+            return InvokeRpc<long[]>(sessionInfo, CreateLoadRequest(sessionInfo, model, data, header));
         }
 
         private OdooRpcRequest CreateLoadRequest(OdooSessionInfo sessionInfo, string model, object data, object header)
@@ -31,8 +31,8 @@ namespace OdooRpc.CoreCLR.Client.Internals.Commands
                     "load",
                     new object[]
                     {
-                        data,
-                        header
+                        header,
+                        data
                     }
                 },
                 context = sessionInfo.UserContext

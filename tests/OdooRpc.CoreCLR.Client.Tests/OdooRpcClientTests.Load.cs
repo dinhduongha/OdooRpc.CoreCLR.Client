@@ -23,11 +23,11 @@ namespace OdooRpc.CoreCLR.Client.Tests
             };
             var header = new[] { "name", "display_name" };
 
-            var response = new JsonRpcResponse<dynamic>();
+            var response = new JsonRpcResponse<long[]>();
             response.Id = 1;
-            response.Result = 78;
+            response.Result = new long[] { 78, 79 };
 
-            await TestOdooRpcCall(new OdooRpcCallTestParameters<dynamic>()
+            await TestOdooRpcCall(new OdooRpcCallTestParameters<long[]>()
             {
                 Model = "res.partner",
                 Method = "load",
@@ -46,7 +46,7 @@ namespace OdooRpc.CoreCLR.Client.Tests
                         args
                     );
                 },
-                ExecuteRpcCall = () => RpcClient.Load<dynamic>("res.partner", data, header),
+                ExecuteRpcCall = () => RpcClient.Load("res.partner", data, header),
                 TestResponse = response
             });
         }
