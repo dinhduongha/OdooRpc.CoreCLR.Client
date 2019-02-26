@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Description>Simple Odoo JSON-RPC Client for .Net Core 2.0. Fork from https://github.com/vmlf01/OdooRpc.CoreCLR.Client</Description>
     <Authors>LORDofDOOM;vmlf01;trafaelsilva</Authors>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>OdooRpc.CoreCLR.Client</AssemblyName>
     <PackageId>OdooRpc.CoreCLR.Client.V2</PackageId>
     <PackageTags>odoo;openerp;dotnet code;json-rpc;dotnet</PackageTags>
@@ -17,7 +17,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="JsonRpc.CoreCLR.Client" Version="1.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
 
 </Project>
